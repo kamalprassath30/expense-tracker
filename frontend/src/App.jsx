@@ -7,7 +7,9 @@ function App() {
 
   const fetchExpenses = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/expenses?sort=date_desc");
+      const res = await fetch(
+        "https://expense-tracker-1-0xim.onrender.com/expenses?sort=date_desc",
+      );
       const data = await res.json();
       setExpenses(data);
     } catch (err) {
