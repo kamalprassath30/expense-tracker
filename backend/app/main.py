@@ -10,12 +10,12 @@ models.Base.metadata.create_all(bind=engine)
 
 origins = [
     "http://localhost:5173",  # React dev server
-    "https://expense-tracker-1-1qj6a0puv-kamal-prasaths-projects.vercel.app/"
+    "https://expense-tracker-1-1qj6a0puv-kamal-prasaths-projects.vercel.app/",
 ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
