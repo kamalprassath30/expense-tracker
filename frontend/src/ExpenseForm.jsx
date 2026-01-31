@@ -40,14 +40,17 @@ export default function ExpenseForm({ onExpenseAdded, onRefresh }) {
     const idempotencyKey = generateIdempotencyKey();
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/expenses", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Idempotency-Key": idempotencyKey,
+      const response = await fetch(
+        "https://expense-tracker-1-0xim.onrender.com/expenses",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Idempotency-Key": idempotencyKey,
+          },
+          body: JSON.stringify(expenseData),
         },
-        body: JSON.stringify(expenseData),
-      });
+      );
 
       if (!response.ok) throw new Error("Failed to create expense");
 
